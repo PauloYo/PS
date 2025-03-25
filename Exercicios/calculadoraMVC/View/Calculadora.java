@@ -1,7 +1,7 @@
 package View;
 
-public class Application {
-    public static void main(String[] args) {
+public class Calculadora {
+    public static void run() {
         System.out.println("===== Calculator =====");
         while (true) {
             Controller.Controller controller = new Controller.Controller();
