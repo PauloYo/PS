@@ -1,4 +1,4 @@
-package Models;
+package com.ifes.models;
 
 public class Divisao implements Operadores {
 
