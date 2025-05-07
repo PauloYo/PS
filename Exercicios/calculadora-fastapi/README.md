@@ -1,133 +1,165 @@
-# API Calculadora
+# Calculadora Usando FastAPI
 
-Esta é uma API simples de calculadora construída usando **FastAPI**. A API fornece endpoints para realizar operações aritméticas básicas, como adição, subtração, multiplicação e divisão.
+Esta é uma API de calculadora simples construída com **FastAPI**. A API fornece endpoints para operações aritméticas básicas, como adição, subtração, multiplicação, divisão, potência e raiz quadrada.
 
 ## Funcionalidades
 
-- Realizar operações aritméticas básicas:
-  - Adição
-  - Subtração
-  - Multiplicação
-  - Divisão
-- Validação de entrada usando modelos do **Pydantic**.
-- Lida com divisão por zero de forma adequada, com mensagens de erro apropriadas.
+- Realize operações aritméticas básicas:
+  - Adição (`/add`)
+  - Subtração (`/subtract`)
+  - Multiplicação (`/multiply`)
+  - Divisão (`/divide`)
+  - Potência (`/power`)
+  - Raiz quadrada (`/square_root`)
+- Validação de entrada usando modelos **Pydantic**.
+- Trata divisão por zero e entradas inválidas com mensagens de erro claras.
 
 ## Requisitos
 
-- Python 3.9 ou superior
-- Dependências listadas no arquivo `requirements.txt`:
-  - `fastapi==0.95.2`
-  - `pydantic==1.10.7`
-  - `uvicorn==0.22.0`
+- Python 3.9 a 3.12
+- fastapi==0.95.2
+- pydantic==1.10.7
+- uvicorn==0.22.0
 
 ## Instalação
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/your-username/calculadora-fastapi.git
-   cd calculadora-fastapi
-   ```
+### Instalação via PyPI
 
-2. Crie um ambiente virtual e ative-o:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # No Windows: venv\Scripts\activate
-   ```
+Você pode instalar a calculadora diretamente do PyPI:
 
-3. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install calculadora-fastapi-paulo-lopes==0.1.6
+```
 
-## Executando a Aplicação
+### Instalação Local (a partir do código fonte)
 
-1. Inicie o servidor FastAPI usando o Uvicorn:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+Se quiser rodar ou modificar o projeto localmente, faça:
 
-2. Abra o navegador e navegue para:
-   ```
-   http://127.0.0.1:8000/docs
-   ```
-   Isso abrirá a documentação interativa da API (Swagger UI).
+```bash
+git clone https://github.com/seu-usuario/calculadora-fastapi.git
+cd calculadora-fastapi
+python -m venv venv
+# Ative o ambiente virtual:
+# No Windows:
+venv\Scripts\activate
+# No Linux/macOS:
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Como Executar
+
+### Após instalar pelo PyPI
+
+Basta rodar o comando abaixo para iniciar o servidor FastAPI:
+
+```bash
+calculadora-fastapi-paulo-lopes
+```
+
+O servidor será iniciado em `http://127.0.0.1:8000`.
+
+### Após instalar localmente
+
+Execute com Uvicorn a partir do diretório do projeto:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+O servidor também estará disponível em `http://127.0.0.1:8000`.
+
+## Documentação Interativa
+
+Abra o navegador e acesse:
+```
+http://127.0.0.1:8000/docs
+```
+Isso abrirá a documentação interativa da API (Swagger UI).
 
 ## Endpoints da API
 
-### 1. **Adição**
-   - **Endpoint**: `/add`
-   - **Método**: `POST`
-   - **Corpo da Requisição**:
-     ```json
-     {
-       "a": 5,
-       "b": 3
-     }
-     ```
-   - **Resposta**:
-     ```json
-     {
-       "result": 8
-     }
-     ```
+### Adição
+- **Endpoint**: `/add`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 5, "b": 3 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 8 }
+  ```
 
-### 2. **Subtração**
-   - **Endpoint**: `/subtract`
-   - **Método**: `POST`
-   - **Corpo da Requisição**:
-     ```json
-     {
-       "a": 5,
-       "b": 3
-     }
-     ```
-   - **Resposta**:
-     ```json
-     {
-       "result": 2
-     }
-     ```
+### Subtração
+- **Endpoint**: `/subtract`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 5, "b": 3 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 2 }
+  ```
 
-### 3. **Multiplicação**
-   - **Endpoint**: `/multiply`
-   - **Método**: `POST`
-   - **Corpo da Requisição**:
-     ```json
-     {
-       "a": 5,
-       "b": 3
-     }
-     ```
-   - **Resposta**:
-     ```json
-     {
-       "result": 15
-     }
-     ```
+### Multiplicação
+- **Endpoint**: `/multiply`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 5, "b": 3 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 15 }
+  ```
 
-### 4. **Divisão**
-   - **Endpoint**: `/divide`
-   - **Método**: `POST`
-   - **Corpo da Requisição**:
-     ```json
-     {
-       "a": 6,
-       "b": 3
-     }
-     ```
-   - **Resposta**:
-     ```json
-     {
-       "result": 2
-     }
-     ```
-   - **Tratamento de Erros**:
-     - Se `b` for `0`, a API retornará:
-       ```json
-       {
-         "detail": "Division by zero is not allowed"
-       }
-       ```
+### Divisão
+- **Endpoint**: `/divide`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 6, "b": 3 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 2 }
+  ```
+- **Tratamento de Erros**:
+  - Se `b` for `0`, a API retorna:
+    ```json
+    { "detail": "Divisão por zero não é permitida" }
+    ```
+
+### Potência
+- **Endpoint**: `/power`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 2, "b": 3 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 8 }
+  ```
+
+### Raiz Quadrada
+- **Endpoint**: `/square_root`
+- **Método**: `POST`
+- **Corpo da Requisição**:
+  ```json
+  { "a": 9, "b": 0 }
+  ```
+- **Resposta**:
+  ```json
+  { "result": 3 }
+  ```
+- **Tratamento de Erros**:
+  - Se `a` for negativo, a API retorna:
+    ```json
+    { "detail": "Raiz quadrada de número negativo não é permitida" }
+    ```
 
 ## Estrutura do Projeto
 
@@ -136,9 +168,13 @@ calculadora-fastapi/
 ├── app/
 │   ├── main.py          # Ponto de entrada da aplicação FastAPI
 │   ├── models.py        # Modelos Pydantic para requisição e resposta
+├── lib/
 │   ├── operations.py    # Funções de operações aritméticas
+│   └── __init__.py
 ├── requirements.txt     # Dependências do projeto
 ├── README.md            # Documentação do projeto
+├── setup.py             # Configuração de empacotamento
+├── pyproject.toml       # Configuração do sistema de build
 ```
 
 ## Licença
