@@ -38,6 +38,7 @@ Se quiser rodar ou modificar o projeto localmente, faça:
 ```bash
 git clone https://github.com/seu-usuario/calculadora-fastapi.git
 cd calculadora-fastapi
+# Use uma versão Python até 3.12 (não use 3.13, pois não há suporte)
 python -m venv venv
 # Ative o ambiente virtual:
 # No Windows:
