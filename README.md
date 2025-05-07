@@ -20,7 +20,10 @@ PS/
 │   │   └── README.md            # Documentação da calculadora baseada em Reflection
 │   ├── calculadora-fastapi/     # Uma API de calculadora construída com FastAPI
 │   │   ├── app/                 # Código da aplicação FastAPI
+│   │   ├── lib/                 # Funções de operações aritméticas usadas pela API
 │   │   ├── requirements.txt     # Dependências do Python
+│   │   ├── setup.py             # Configuração de empacotamento para PyPI
+│   │   ├── pyproject.toml       # Configuração do sistema de build
 │   │   └── README.md            # Documentação da calculadora FastAPI
 ├── LICENSE                      # Licença do repositório
 ├── .gitattributes               # Configuração do Git para finais de linha
@@ -41,12 +44,15 @@ PS/
 
 ### 3. **Calculadora FastAPI**
 - Uma API RESTful para realizar operações aritméticas, construída com **FastAPI**.
-- Oferece endpoints para adição, subtração, multiplicação e divisão.
-- Inclui validação de entrada usando **Pydantic** e tratamento de erros para divisão por zero.
+- Oferece endpoints para adição, subtração, multiplicação, divisão, potência e raiz quadrada.
+- Inclui validação de entrada usando **Pydantic** e tratamento de erros para divisão por zero e entradas inválidas.
+- **Disponível no PyPI**: pode ser instalada diretamente com `pip install calculadora-fastapi-paulo-lopes==0.1.6`.
+- Após instalar via PyPI, basta rodar o comando `calculadora-fastapi-paulo-lopes` para iniciar o servidor.
+- Também pode ser executada localmente via Uvicorn, conforme instruções no README do projeto.
 
 ## Como Usar
 
-1. Navegue até o diretório do projeto específico (por exemplo, `Exercicios/calculadoramvc`).
+1. Navegue até o diretório do projeto específico (por exemplo, `Exercicios/calculadoramvc` ou `Exercicios/calculadora-fastapi`).
 2. Siga as instruções no arquivo `README.md` correspondente para construir, executar ou interagir com o projeto.
 
 ## Licença
