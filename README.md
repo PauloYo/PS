@@ -55,10 +55,6 @@ PS/
 1. Navegue até o diretório do projeto específico (por exemplo, `Exercicios/calculadoramvc` ou `Exercicios/calculadora-fastapi`).
 2. Siga as instruções no arquivo `README.md` correspondente para construir, executar ou interagir com o projeto.
 
-## Licença
-
-Este repositório está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ## Agradecimentos
 
 Este repositório foi criado como parte da disciplina de **Projeto de Sistemas** para facilitar o aprendizado e o desenvolvimento de conceitos de engenharia de software.
